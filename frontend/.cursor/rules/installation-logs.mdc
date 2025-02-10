@@ -162,3 +162,12 @@ simonxing@MacbookPro32 frontend % bunx --bun shadcn@latest add
   - src/components/ui/toggle-group.tsx
 ```
 ---
+```bash
+frontend % bun add @icons-pack/react-simple-icons
+[0.10ms] ".env.production", ".env"
+bun add v1.1.45 (196621f2)
+
+installed @icons-pack/react-simple-icons@11.2.0
+
+1 package installed [3.18s]
+```
