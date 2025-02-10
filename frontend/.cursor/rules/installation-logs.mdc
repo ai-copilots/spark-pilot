@@ -1,0 +1,87 @@
+---
+description: helpful when you need to know the installations (configurations and processes) of third party packages
+globs: 
+---
+```bash
+npx create-next-app@latest --use-bun --disable-git
+```
+
+````
+✔ What is your project named? … frontend
+✔ Would you like to use TypeScript? … No / Yes
+✔ Would you like to use ESLint? … No / Yes
+✔ Would you like to use Tailwind CSS? … No / Yes
+✔ Would you like your code inside a `src/` directory? … No / Yes
+✔ Would you like to use App Router? (recommended) … No / Yes
+✔ Would you like to use Turbopack for `next dev`? … No / Yes
+✔ Would you like to customize the import alias (`@/*` by default)? … No / Yes
+Creating a new Next.js app in /Users/simonxing/Documents/spark-pilot/frontend.
+
+Using bun.
+
+Initializing project with template: app-tw
+
+
+Installing dependencies:
+- react
+- react-dom
+- next
+
+Installing devDependencies:
+- typescript
+- @types/node
+- @types/react
+- @types/react-dom
+- postcss
+- tailwindcss
+- eslint
+- eslint-config-next
+- @eslint/eslintrc
+
+bun install v1.1.45 (196621f2)
+
++ @eslint/eslintrc@3.2.0
++ @types/node@20.17.17 (v22.13.1 available)
++ @types/react@19.0.8
++ @types/react-dom@19.0.3
++ eslint@9.20.0
++ eslint-config-next@15.1.6
++ postcss@8.5.1
++ tailwindcss@3.4.17 (v4.0.5 available)
++ typescript@5.7.3
++ next@15.1.6
++ react@19.0.0
++ react-dom@19.0.0
+
+360 packages installed [3.09s]
+Skipping git initialization.
+
+Success! Created frontend at /Users/simonxing/Documents/spark-pilot/frontend
+````
+---
+```bash
+frontend % bun run next telemetry --disable
+```
+
+````
+Next.js' telemetry collection is already disabled.
+
+Status: Disabled
+
+You have opted-out of Next.js' anonymous telemetry program.
+No data will be collected from your machine.
+
+Learn more: https://nextjs.org/telemetry
+````
+---
+```bash
+frontend % bun add server-only
+```
+
+```
+bun add v1.1.45 (196621f2)
+
+installed server-only@0.0.1
+
+1 package installed [1099.00ms]
+```
