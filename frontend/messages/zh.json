@@ -2,5 +2,10 @@
     "Metadata": {
       "title": "SparkPilot - AI学习助手",
       "description": "一个支持多语言的智能AI助手，旨在激发学习兴趣和好奇心。"
+    },
+    "NotFound": {
+        "title": "404 - 页面未找到",
+        "description": "您正在寻找的页面不存在或已移动。",
+        "returnHome": "返回首页"
     }
 }

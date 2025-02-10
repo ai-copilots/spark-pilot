@@ -2,5 +2,10 @@
     "Metadata": {
         "title": "SparkPilot - AI Learning Copilot",
         "description": "An intelligent AI-powered assistant designed to ignite learning and curiosity with multi-language support."
+    },
+    "NotFound": {
+        "title": "404 - Page Not Found",
+        "description": "The page you're looking for doesn't exist or has been moved.",
+        "returnHome": "Return to Home"
     }
 }

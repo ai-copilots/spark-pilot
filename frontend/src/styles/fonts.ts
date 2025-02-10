@@ -1,31 +1,108 @@
-import localFont from 'next/font/local'
+import localFont from 'next/font/local';
+import type { Locale } from '@/config/i18n';
 
-// 英文（无衬线）
-export const fontNotoSans = localFont({
+// 定义字体配置类型
+type FontConfig = {
+  variable: string;
+  className: string;
+};
+
+// 定义每种语言的字体配置
+type LocaleFonts = {
+  [key in Locale]: FontConfig;
+};
+
+// 基础拉丁字体 (英文等)
+export const notoSans = localFont({
   src: [
-    { path: 'fonts/NotoSans-Regular.ttf', weight: '400', style: 'normal' },
-    { path: 'fonts/NotoSans-Bold.ttf', weight: '700', style: 'normal' },
+    {
+      path: '../../public/fonts/NotoSans-Regular.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/NotoSans-Bold.ttf',
+      weight: '700',
+      style: 'normal',
+    }
   ],
   variable: '--font-noto-sans',
   display: 'swap',
-})
+});
 
-// 中文（无衬线 - UI 设计）
-export const fontNotoSansSC = localFont({
+// 简体中文
+export const notoSansSC = localFont({
   src: [
-    { path: 'fonts/NotoSansSC-Regular.ttf', weight: '400', style: 'normal' },
-    { path: 'fonts/NotoSansSC-Bold.ttf', weight: '700', style: 'normal' },
+    {
+      path: '../../public/fonts/NotoSansSC-Regular.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/NotoSansSC-Bold.ttf',
+      weight: '700',
+      style: 'normal',
+    }
   ],
   variable: '--font-noto-sans-sc',
   display: 'swap',
-})
+});
 
-// 中文（有衬线 - 正式内容）
-export const fontNotoSerifSC = localFont({
-  src: [
-    { path: 'fonts/NotoSerifSC-Regular.ttf', weight: '400', style: 'normal' },
-    { path: 'fonts/NotoSerifSC-Bold.ttf', weight: '700', style: 'normal' },
-  ],
-  variable: '--font-noto-serif-sc',
-  display: 'swap',
-})
+/**
+ * 未来可能支持的其他语言字体配置
+ * 
+ * 日文支持:
+ * export const notoSansJP = localFont({
+ *   src: [
+ *     {
+ *       path: '../../public/fonts/NotoSansJP-Regular.ttf',
+ *       weight: '400',
+ *       style: 'normal',
+ *     },
+ *     {
+ *       path: '../../public/fonts/NotoSansJP-Bold.ttf',
+ *       weight: '700',
+ *       style: 'normal',
+ *     }
+ *   ],
+ *   variable: '--font-noto-sans-jp',
+ *   display: 'swap',
+ * });
+ * 
+ * 韩文支持:
+ * export const notoSansKR = localFont({
+ *   src: [
+ *     {
+ *       path: '../../public/fonts/NotoSansKR-Regular.ttf',
+ *       weight: '400',
+ *       style: 'normal',
+ *     },
+ *     {
+ *       path: '../../public/fonts/NotoSansKR-Bold.ttf',
+ *       weight: '700',
+ *       style: 'normal',
+ *     }
+ *   ],
+ *   variable: '--font-noto-sans-kr',
+ *   display: 'swap',
+ * });
+ */
+
+// 语言到字体的映射
+export const localeFonts: LocaleFonts = {
+  en: notoSans,
+  zh: notoSansSC,
+  // 未来支持的语言:
+  // ja: notoSansJP,
+  // ko: notoSansKR,
+} as const;
+
+// 获取特定语言的字体配置
+export const getFontByLocale = (locale: string): FontConfig => {
+  return (locale in localeFonts) ? localeFonts[locale as keyof LocaleFonts] : notoSans;
+};
+
+// 获取所有字体变量
+export const getAllFontVariables = () => {
+  return Object.values(localeFonts).map(font => font.variable);
+}; 

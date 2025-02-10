@@ -5,9 +5,7 @@ import animate from "tailwindcss-animate";
 export default {
     darkMode: ["class"],
     content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
   	extend: {
@@ -89,7 +87,14 @@ export default {
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out'
-  		}
+  		},
+  		fontFamily: {
+  			sans: ['var(--font-noto-sans)', 'system-ui', 'sans-serif'],
+  			sc: ['var(--font-noto-sans-sc)', 'var(--font-noto-sans)', 'system-ui', 'sans-serif'],
+  			// 未来可能支持的字体
+  			// jp: ['var(--font-noto-sans-jp)', 'var(--font-noto-sans)', 'system-ui', 'sans-serif'],
+  			// kr: ['var(--font-noto-sans-kr)', 'var(--font-noto-sans)', 'system-ui', 'sans-serif'],
+  		},
   	}
   },
   plugins: [animate],

@@ -4,6 +4,7 @@ import { getLocale, getMessages, getTranslations } from 'next-intl/server';
 import { formats } from "@/lib/i18n/request";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { cn } from "@/lib/utils";
+import { getAllFontVariables } from "@/styles/fonts";
 import "@/styles/globals.css";
 
 /**
@@ -32,10 +33,23 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html 
+      lang={locale} 
+      suppressHydrationWarning
+      className={cn(
+        ...getAllFontVariables() // 加载所有字体变量
+      )}
+    >
       <body
         className={cn(
-          "antialiased"
+          "antialiased",
+          {
+            'font-sans': locale === 'en',
+            'font-sc': locale === 'zh',
+            // 未来支持的语言:
+            // 'font-jp': locale === 'ja',
+            // 'font-kr': locale === 'ko',
+          }
         )}
       >
         <NextIntlClientProvider messages={messages} locale={locale} formats={formats}>
