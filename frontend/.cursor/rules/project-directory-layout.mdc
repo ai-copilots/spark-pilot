@@ -36,6 +36,17 @@ globs:
 - 共享的 TypeScript 类型定义
 - 公共的工具函数
 
+#### `/src/components/ui/`
+- 存放 shadcn/ui 的基础组件（primitives）
+- 这些组件通常是 无状态、无业务逻辑 的 UI 组件，可以在整个项目中复用
+- 仅用于 UI 层，不包含复杂的业务逻辑
+
+#### `/src/components/common/`
+- 存放通用但带有 UI 逻辑的组件
+- 这些组件通常是 多个 ui 组件的组合，但不属于具体的业务模块
+- 适用于 全局通用 UI 组件，如主题切换、语言切换、导航栏、页脚等
+
+
 ### `/src/lib/`
 - 核心应用配置
 - 数据库连接（如 Prisma、Drizzle、Neon 等）
