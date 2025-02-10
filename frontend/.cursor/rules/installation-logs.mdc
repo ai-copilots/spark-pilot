@@ -181,3 +181,13 @@ installed next-themes@0.4.4
 
 [3.75s] done
 ```
+---
+```bash
+frontend % bun add next-intl
+[0.09ms] ".env.production", ".env"
+bun add v1.1.45 (196621f2)
+
+installed next-intl@3.26.3
+
+11 packages installed [2.64s]
+```
