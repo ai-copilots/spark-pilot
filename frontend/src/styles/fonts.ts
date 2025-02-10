@@ -16,13 +16,43 @@ type LocaleFonts = {
 export const notoSans = localFont({
   src: [
     {
+      path: '../../public/fonts/NotoSans-Thin.ttf',
+      weight: '100',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/NotoSans-Light.ttf',
+      weight: '300',
+      style: 'normal',
+    },
+    {
       path: '../../public/fonts/NotoSans-Regular.ttf',
       weight: '400',
       style: 'normal',
     },
     {
+      path: '../../public/fonts/NotoSans-Medium.ttf',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/NotoSans-SemiBold.ttf',
+      weight: '600',
+      style: 'normal',
+    },
+    {
       path: '../../public/fonts/NotoSans-Bold.ttf',
       weight: '700',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/NotoSans-ExtraBold.ttf',
+      weight: '800',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/NotoSans-Black.ttf',
+      weight: '900',
       style: 'normal',
     }
   ],
@@ -34,13 +64,43 @@ export const notoSans = localFont({
 export const notoSansSC = localFont({
   src: [
     {
+      path: '../../public/fonts/NotoSansSC-Thin.ttf',
+      weight: '100',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/NotoSansSC-Light.ttf',
+      weight: '300',
+      style: 'normal',
+    },
+    {
       path: '../../public/fonts/NotoSansSC-Regular.ttf',
       weight: '400',
       style: 'normal',
     },
     {
+      path: '../../public/fonts/NotoSansSC-Medium.ttf',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/NotoSansSC-SemiBold.ttf',
+      weight: '600',
+      style: 'normal',
+    },
+    {
       path: '../../public/fonts/NotoSansSC-Bold.ttf',
       weight: '700',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/NotoSansSC-ExtraBold.ttf',
+      weight: '800',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/NotoSansSC-Black.ttf',
+      weight: '900',
       style: 'normal',
     }
   ],
@@ -55,13 +115,43 @@ export const notoSansSC = localFont({
  * export const notoSansJP = localFont({
  *   src: [
  *     {
+ *       path: '../../public/fonts/NotoSansJP-Thin.ttf',
+ *       weight: '100',
+ *       style: 'normal',
+ *     },
+ *     {
+ *       path: '../../public/fonts/NotoSansJP-Light.ttf',
+ *       weight: '300',
+ *       style: 'normal',
+ *     },
+ *     {
  *       path: '../../public/fonts/NotoSansJP-Regular.ttf',
  *       weight: '400',
  *       style: 'normal',
  *     },
  *     {
+ *       path: '../../public/fonts/NotoSansJP-Medium.ttf',
+ *       weight: '500',
+ *       style: 'normal',
+ *     },
+ *     {
+ *       path: '../../public/fonts/NotoSansJP-SemiBold.ttf',
+ *       weight: '600',
+ *       style: 'normal',
+ *     },
+ *     {
  *       path: '../../public/fonts/NotoSansJP-Bold.ttf',
  *       weight: '700',
+ *       style: 'normal',
+ *     },
+ *     {
+ *       path: '../../public/fonts/NotoSansJP-ExtraBold.ttf',
+ *       weight: '800',
+ *       style: 'normal',
+ *     },
+ *     {
+ *       path: '../../public/fonts/NotoSansJP-Black.ttf',
+ *       weight: '900',
  *       style: 'normal',
  *     }
  *   ],
