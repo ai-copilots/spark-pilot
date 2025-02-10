@@ -1,5 +1,5 @@
 ````
-simonxing@MacbookPro32 frontend % tree -I "node_modules|.git"
+frontend % tree -I "node_modules|.git"
 .
 ├── README.md
 ├── bun.lockb
@@ -13,12 +13,17 @@ simonxing@MacbookPro32 frontend % tree -I "node_modules|.git"
 ├── postcss.config.mjs
 ├── public
 │   ├── file.svg
+│   ├── fronts
 │   ├── globe.svg
+│   ├── icons
+│   ├── images
 │   ├── next.svg
 │   ├── vercel.svg
 │   └── window.svg
 ├── src
+│   ├── actions
 │   ├── app
+│   │   ├── api
 │   │   ├── favicon.ico
 │   │   ├── layout.tsx
 │   │   └── page.tsx
@@ -72,16 +77,19 @@ simonxing@MacbookPro32 frontend % tree -I "node_modules|.git"
 │   │       ├── toggle-group.tsx
 │   │       ├── toggle.tsx
 │   │       └── tooltip.tsx
+│   ├── features
 │   ├── hooks
 │   │   ├── use-mobile.tsx
 │   │   └── use-toast.ts
 │   ├── instrumentation.ts
 │   ├── lib
 │   │   └── utils.ts
-│   └── styles
-│       └── globals.css
+│   ├── styles
+│   │   └── globals.css
+│   ├── types
+│   └── utils
 ├── tailwind.config.ts
 └── tsconfig.json
 
-10 directories, 72 files
+18 directories, 72 files
 ````

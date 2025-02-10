@@ -3,3 +3,91 @@ description: Helpful to get a quick overview of latest project files directory l
 globs: 
 ---
 [project-directory-layout.md](mdc:docs/project-directory-layout.md)
+
+# Next.js App Router Feature-Based Layout
+
+这里是完整的目录说明文档
+
+---
+
+## 🏛️ Directory Breakdown
+
+### `/src/app/`
+- Next.js 15 App Router 页面和 API 入口
+- 组织路由时可使用 `(grouping)` 进行分组
+- API 路由 (`/src/app/api/`)
+- 服务器端渲染（SSR）和服务器组件入口
+
+### `/src/features/`
+- 领域特定的功能模块
+- 封装业务逻辑，使其独立可复用
+- 每个功能模块自包含其组件、hooks、类型、工具函数等
+
+#### Feature Subdirectories
+- `components/`：该功能模块的 React 组件
+- `hooks/`：与该功能相关的自定义 React hooks
+- `types/`：TypeScript 类型定义
+- `utils/`：工具函数
+- `actions/`：用于处理数据变更的 Server Actions
+
+### `/src/components/`
+- 可复用的 UI 组件（非特定于某个功能模块）
+- 共享的 hooks
+- 共享的 TypeScript 类型定义
+- 公共的工具函数
+
+### `/src/lib/`
+- 核心应用配置
+- 数据库连接（如 Prisma、Drizzle、Neon 等）
+- 认证逻辑（如 NextAuth、Clerk、Auth.js）
+- 全局配置（环境变量、API 客户端等）
+
+### `/src/actions/`
+- 全局 Server Actions（用于服务端数据操作）
+- 处理数据库读写、API 请求、表单提交等逻辑
+- 避免客户端直接与数据库交互
+- 例如：
+  - `authActions.ts`（用户身份验证相关操作）
+  - `postActions.ts`（博客文章的 CRUD 操作）
+
+### `/src/hooks/`
+- 全局可复用的自定义 React Hooks
+- 适用于状态管理、数据获取、窗口事件监听等
+- 例如：
+  - `useAuth.ts`（认证状态管理）
+  - `useTheme.ts`（暗黑模式切换）
+  - `useDebounce.ts`（防抖函数 Hook）
+
+### `/src/types/`
+- 全局 TypeScript 类型定义
+- 避免在组件和功能模块中重复定义类型
+- 例如：
+  - `auth.ts`（用户身份验证相关类型）
+  - `post.ts`（博客文章类型）
+  - `api.ts`（API 请求/响应类型）
+
+### `/src/styles/`
+- 全局样式（CSS/SCSS、Tailwind 配置）
+- 主题变量（如 `theme.ts`）
+- 设计系统（如 `tokens.ts`）
+
+### `/src/store/`
+- 全局状态管理（如 Zustand、Redux、Jotai）
+- 状态存储、上下文提供器
+- 状态管理 hooks
+
+### `/src/config/`
+- 配置文件（如 `site.ts`、`seo.ts`）
+- 环境相关配置（如 `env.ts`）
+- 运行时变量定义
+
+### `/src/middleware.ts`
+- Next.js 中间件（拦截请求，进行认证、重定向等逻辑）
+
+### `/src/utils/`
+- 全局工具函数（如格式化、数据转换等）
+- 与 `/src/lib/` 区别：`lib` 主要用于外部集成，而 `utils` 更关注通用逻辑
+
+---
+
+现在文档更完整，符合 `feature-based` 组织方式，同时适用于 Next.js 15（App Router + `src` 目录）。
