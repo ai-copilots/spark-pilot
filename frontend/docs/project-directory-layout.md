@@ -28,6 +28,7 @@ frontend % tree -I "node_modules|.git"
 │   │   ├── layout.tsx
 │   │   └── page.tsx
 │   ├── components
+│   │   ├── common
 │   │   └── ui
 │   │       ├── accordion.tsx
 │   │       ├── alert-dialog.tsx
@@ -93,5 +94,5 @@ frontend % tree -I "node_modules|.git"
 ├── tailwind.config.ts
 └── tsconfig.json
 
-19 directories, 73 files
+20 directories, 73 files
 ````
