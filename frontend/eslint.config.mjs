@@ -55,7 +55,7 @@ const eslintConfig = [
       '@typescript-eslint/no-unused-vars': 'off', // 允许未使用的变量(用于接口定义)
       'react-hooks/exhaustive-deps': 'off',       // 关闭 hooks 依赖检查
       '@typescript-eslint/no-explicit-any': 'off', // 允许使用 any 类型
-      '@typescript-eslint/ban-ts-comment': 'off'   // 允许使用 @ts-ignore 等注释
+      '@typescript-eslint/ban-ts-comment': 'off',   // 允许使用 @ts-ignore 等注释
     }
   },
 
@@ -70,8 +70,10 @@ const eslintConfig = [
       'react/jsx-no-literals': 'off',
       
       // 强制使用 Next.js 的 Link 组件进行页面导航
-      // 这有助于确保正确的客户端导航和预加载
-      '@next/next/no-html-link-for-pages': 'error'
+      '@next/next/no-html-link-for-pages': 'error',
+      
+      // 禁用未转义实体的警告（全局）
+      'react/no-unescaped-entities': 'off'
     }
   }
 ];

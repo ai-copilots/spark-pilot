@@ -191,3 +191,13 @@ installed next-intl@3.26.3
 
 11 packages installed [2.64s]
 ```
+---
+```bash
+frontend % bun add -D @tailwindcss/typography
+[0.09ms] ".env.production", ".env"
+bun add v1.1.45 (196621f2)
+
+installed @tailwindcss/typography@0.5.16
+
+5 packages installed [2.08s]
+```

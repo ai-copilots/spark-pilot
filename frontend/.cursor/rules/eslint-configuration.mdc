@@ -2,7 +2,7 @@
 description: Helpful for configure eslint for our next.js 15 project
 globs: 
 ---
-eslint configuration file: [eslint-configuration.mdc](mdc:.cursor/rules/eslint-configuration.mdc)
+eslint configuration file: [eslint.config.mjs](mdc:eslint.config.mjs)
 
 references: 
 - https://nextjs.org/docs/app/api-reference/config/eslint
