@@ -88,6 +88,12 @@ globs:
 - 全局工具函数（如格式化、数据转换等）
 - 与 `/src/lib/` 区别：`lib` 主要用于外部集成，而 `utils` 更关注通用逻辑
 
+### `/src/providers/`
+- 存放全局 Context 提供者（Providers）
+- 负责管理全局状态、主题、认证等上下文
+- 适用于 React Context API 或 第三方 Provider
+这些 Provider 组件通常在 layout.tsx 中使用
+
 ---
 
 现在文档更完整，符合 `feature-based` 组织方式，同时适用于 Next.js 15（App Router + `src` 目录）。

@@ -84,6 +84,7 @@ frontend % tree -I "node_modules|.git"
 │   ├── instrumentation.ts
 │   ├── lib
 │   │   └── utils.ts
+│   ├── providers
 │   ├── styles
 │   │   └── globals.css
 │   ├── types
@@ -91,5 +92,5 @@ frontend % tree -I "node_modules|.git"
 ├── tailwind.config.ts
 └── tsconfig.json
 
-18 directories, 72 files
+19 directories, 72 files
 ````
