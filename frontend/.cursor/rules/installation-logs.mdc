@@ -171,3 +171,13 @@ installed @icons-pack/react-simple-icons@11.2.0
 
 1 package installed [3.18s]
 ```
+---
+```bash
+frontend % bun add next-themes
+[0.07ms] ".env.production", ".env"
+bun add v1.1.45 (196621f2)
+
+installed next-themes@0.4.4
+
+[3.75s] done
+```
