@@ -1,0 +1,108 @@
+---
+description: principles for internationalization
+globs: 
+---
+
+messages files [en.json](mdc:messages/en.json) , [zh.json](mdc:messages/zh.json)
+related files (do not modify): [i18n.ts](mdc:src/config/i18n.ts) [i18n.ts](mdc:src/actions/i18n.ts) [request.ts](mdc:src/lib/i18n/request.ts)
+
+### Async components
+
+These are primarly concerned with fetching data and can not use hooks. Due to this, next-intl provides a set of awaitable versions of the functions that you usually call as hooks from within components.
+
+```page.tsx
+import { getNow, getTimeZone, getTranslations } from 'next-intl/server';
+import { driver } from '@/lib/neo4j'
+
+export default async function Home() {
+  const now = await getNow();
+  const timeZone = await getTimeZone();
+  const t = await getTranslations();
+
+  const session = driver.session()
+  const result = await session.run('MATCH (n) RETURN count(n) AS nodeCount')
+  const count = result.records[0].get('nodeCount').toNumber()
+  await session.close()
+
+  return (
+    <div className="space-y-4 p-4">
+      <h1 className="text-2xl font-bold">Internationalization Tests</h1>
+      
+      {/* 测试基本翻译 */}
+      <section>
+        <h2 className="text-xl">Basic Translation</h2>
+        <p>{t('hello', { name: 'World' })}</p>
+      </section>
+
+      {/* 测试日期格式化 */}
+      <section>
+        <h2 className="text-xl">Date Formatting</h2>
+        <p>Short: {t('date.short', { date: now })}</p>
+        <p>Long: {t('date.long', { date: now })}</p>
+      </section>
+
+      {/* 测试数字格式化 */}
+      <section>
+        <h2 className="text-xl">Number Formatting</h2>
+        <p>Precise: {t('number.precise', { value: 123.45678 })}</p>
+        <p>Percent: {t('number.percent', { value: 0.8523 })}</p>
+        <p>Currency: {t('number.currency', { value: 99.99 })}</p>
+      </section>
+
+      {/* 测试富文本 */}
+      {/* <section>
+        <h2 className="text-xl">Rich Text</h2>
+        <p>{t('richText', {
+          strong: 'important',
+          code: 'example'
+        })}</p>
+      </section> */}
+
+      {/* 测试Neo4j数据 */}
+      <section>
+        <h2 className="text-xl">Database Info</h2>
+        <p>{t('database.nodeCount', { count })}</p>
+      </section>
+
+      {/* 显示时区信息 */}
+      <section>
+        <h2 className="text-xl">Time Zone</h2>
+        <p>{timeZone}</p>
+      </section>
+    </div>
+  );
+}
+```
+
+These functions are available:
+
+- getTranslations
+- getFormatter
+- getNow
+- getTimeZone
+- getMessages
+- getLocale
+
+Components that aren’t declared with the async keyword and don’t use interactive features like useState, are referred to as shared components. These can render either as a Server or Client Component, depending on where they are imported from.
+
+
+### Non-async components
+
+In Next.js, Server Components are the default, and therefore shared components will typically execute as Server Components.
+
+```UserDetails.tsx
+import {useTranslations} from 'next-intl';
+ 
+export default function UserDetails({user}) {
+  const t = useTranslations('UserProfile');
+ 
+  return (
+    <section>
+      <h2>{t('title')}</h2>
+      <p>{t('followers', {count: user.numFollowers})}</p>
+    </section>
+  );
+}
+```
+
+
