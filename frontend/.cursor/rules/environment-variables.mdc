@@ -1,0 +1,45 @@
+---
+description: Helpful for creating and reading environment variables 
+globs: 
+---
+Next.js comes with built-in support for environment variables, which allows you to do the following:
+
+- Use [.env](mdc:.env) to load environment variables
+- Bundle environment variables for the browser by prefixing with NEXT_PUBLIC_
+
+## Loading Environment Variables
+```example
+process.env.DB_USER
+```
+
+## Referencing Other Variables
+Next.js will automatically expand variables that use $ to reference other variables e.g. $VARIABLE inside of your .env* files. This allows you to reference other secrets. For example:
+```example .env
+TWITTER_USER=nextjs
+TWITTER_URL=https://x.com/$TWITTER_USER
+```
+Good to know: If you need to use variable with a $ in the actual value, it needs to be escaped e.g. `\$`.
+
+## Bundling Environment Variables for the Browser
+In order to make the value of an environment variable accessible in the browser, Next.js can "inline" a value, at build time, into the js bundle that is delivered to the client, replacing all references to `process.env.[variable]` with a hard-coded value. To tell it to do this, you just have to prefix the variable with `NEXT_PUBLIC_`. For example:
+```example env
+NEXT_PUBLIC_ANALYTICS_ID=abcdefghijk
+```
+This will tell Next.js to replace all references to process.env.NEXT_PUBLIC_ANALYTICS_ID in the Node.js environment with the value from the environment in which you run next build, allowing you to use it anywhere in your code. It will be inlined into any JavaScript sent to the browser.
+
+Note that dynamic lookups will not be inlined, such as:
+```
+// This will NOT be inlined, because it uses a variable
+const varName = 'NEXT_PUBLIC_ANALYTICS_ID'
+setupAnalyticsService(process.env[varName])
+ 
+// This will NOT be inlined, because it uses a variable
+const env = process.env
+setupAnalyticsService(env.NEXT_PUBLIC_ANALYTICS_ID)
+```
+
+## Runtime Environment Variables
+Good to know:
+
+- You can run code on server startup using the `register` function.
+- We do not recommend using the runtimeConfig option, as this does not work with the standalone output mode. Instead, we recommend incrementally adopting the App Router if you need this feature.
