@@ -105,6 +105,12 @@ globs:
 - 适用于 React Context API 或 第三方 Provider
 这些 Provider 组件通常在 layout.tsx 中使用
 
+### `/src/config/`
+- 存放应用级静态配置，包括环境变量、站点信息、国际化设置等。
+- 所有配置文件均应为纯静态数据，不包含复杂的逻辑或副作用。
+- 仅用于存储和导出配置，不执行 API 请求或计算。
+
+
 ---
 
 现在文档更完整，符合 `feature-based` 组织方式，同时适用于 Next.js 15（App Router + `src` 目录）。
