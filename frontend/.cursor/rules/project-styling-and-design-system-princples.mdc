@@ -1,0 +1,87 @@
+---
+description: Project Styling and Design System Principles
+globs: 
+---
+
+# Project Styling and Design System Principles
+
+1. Project Structure:
+- Framework: Next.js 15 App Router
+- Directory Structure: Standard src-based layout
+- Primary UI Library: shadcn/ui
+- Color Scheme: New York / Zinc variant
+
+2. Tailwind CSS Configuration:
+- Use a neutral, professional color palette
+- Prioritize accessibility and readability
+- Implement dark mode support
+- Use CSS variables for consistent theming
+
+3. Component Design Principles:
+- Consistent spacing (use 4px/8px grid)
+- Rounded corners (prefer subtle roundness, ~6-8px)
+- Soft shadows for depth
+- Smooth transitions (prefer 150-250ms easing)
+
+4. Typography:
+- Base font: Inter or similar neutral, clean sans-serif
+- Heading scale: Precise, with clear hierarchy
+- Line heights: Comfortable readability (1.5 body, 1.2 headings)
+- Font weights: Emphasize clarity over extreme variations
+
+5. Color Usage:
+- Primary: Zinc/Slate variants
+- Accent colors: Minimal, purposeful
+- Ensure 4.5:1 contrast ratio for accessibility
+- Use semantic color mapping (success, error, warning)
+
+6. Interaction States:
+- Hover: Subtle background/border changes
+- Active: Slightly darker/more saturated
+- Focus: Clear, accessible outline
+- Disabled: Reduced opacity, muted interactions
+
+7. Responsive Considerations:
+- Mobile-first approach
+- Fluid typography
+- Adaptive layouts
+- Touch-friendly interaction targets (min 44x44px)
+
+Example Tokens/Variables to Generate:
+```json
+{
+  "colors": {
+    "background": "hsl(0 0% 100%)",
+    "foreground": "hsl(240 10% 3.9%)",
+    "primary": {
+      "DEFAULT": "hsl(240 5.9% 10%)",
+      "foreground": "hsl(0 0% 98%)"
+    },
+    "secondary": {
+      "DEFAULT": "hsl(240 4.8% 95.9%)",
+      "foreground": "hsl(240 5.9% 10%)"
+    }
+  },
+  "borderRadius": {
+    "lg": "0.5rem",
+    "md": "calc(0.5rem - 2px)",
+    "sm": "calc(0.5rem - 4px)"
+  },
+  "typography": {
+    "base": "16px",
+    "scale": {
+      "h1": "2.5rem",
+      "h2": "2rem",
+      "h3": "1.75rem"
+    }
+  }
+}
+```
+
+Specific Guidance:
+- Prioritize semantic markup
+- Use CSS variables for theming
+- Implement proper aria attributes
+- Ensure keyboard navigability
+
+
