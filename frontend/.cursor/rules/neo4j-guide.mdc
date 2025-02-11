@@ -1,0 +1,51 @@
+---
+description: Helpful to use neo4j in this project
+globs: *.tsx, *.ts
+---
+# [neo4j.ts](mdc:src/lib/neo4j.ts) 使用指南
+
+1. 环境配置
+确保设置以下环境变量：
+- NEO4J_URI：数据库连接地址
+- NEO4J_USERNAME：用户名
+- NEO4J_PASSWORD：密码
+
+2. 基本使用限制
+- 此模块仅限服务器端使用（使用了 server-only）
+- 采用单例模式管理连接
+- 自动管理连接池（最大连接数：50）
+
+3. 查询操作
+- 读操作：使用 executeRead<T> 函数
+- 写操作：使用 executeWrite<T> 函数
+- 两个函数都支持泛型，可以指定返回数据类型
+- 自动管理会话的打开和关闭
+
+4. 错误处理
+- 所有错误都会包装为 Neo4jConnectionError
+- 错误包含原始错误信息（cause 属性）
+- 建议使用 try-catch 进行错误处理
+
+5. 性能监控
+- 所有查询都会自动记录执行时间
+- 日志格式：[Neo4j Query] Operation took XXXms
+- 可通过控制台查看性能日志
+
+6. 连接管理
+- 连接验证：使用 verifyConnectivity()
+- 获取服务器信息：使用 getServerInfo()
+- 手动关闭连接：使用 closeConnection()
+
+7. 最佳实践
+- 不需要手动管理会话，API 会自动处理
+- 长时间运行的应用应该在关闭时调用 closeConnection
+- 使用泛型来获得更好的类型提示
+- 总是处理可能的错误情况
+
+8. 注意事项
+- 首次查询可能较慢（需要建立连接）
+- 连接超时设置为 2000ms
+- 日志级别默认为 'warn'
+- 所有操作都是异步的，需要使用 await
+
+这个模块设计简单直观，主要目标是降低使用 Neo4j 的复杂度，同时保证性能和可靠性。开发者只需要关注业务逻辑，而不需要处理底层的连接管理和会话控制。

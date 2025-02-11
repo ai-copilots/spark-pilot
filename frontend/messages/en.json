@@ -3,9 +3,80 @@
         "title": "SparkPilot - AI Learning Copilot",
         "description": "An intelligent AI-powered assistant designed to ignite learning and curiosity with multi-language support."
     },
+    "Terms": {
+        "title": "Terms of Service",
+        "description": "Please read the following terms and conditions carefully."
+    },
+    "Privacy": {
+        "title": "Privacy Policy",
+        "description": "Please read the following privacy policy carefully."
+    },
     "NotFound": {
         "title": "404 - Page Not Found",
         "description": "The page you're looking for doesn't exist or has been moved.",
         "returnHome": "Return to Home"
+    },
+    "Auth": {
+        "login": {
+            "title": "Welcome Back",
+            "description": "Sign in to continue",
+            "buttons": {
+                "github": "Sign in with GitHub",
+                "google": "Sign in with Google"
+            },
+            "terms": {
+                "agreement": "By signing in, you agree to our",
+                "service": "Terms of Service",
+                "and": "and",
+                "privacy": "Privacy Policy"
+            }
+        },
+        "error": {
+            "title": "Authentication Error",
+            "returnHome": "Return Home",
+            "tryAgain": "Try Again",
+            "types": {
+                "default": {
+                    "code": "ERROR_UNKNOWN",
+                    "description": "An unexpected error occurred during authentication."
+                },
+                "Configuration": {
+                    "code": "ERROR_CONFIG",
+                    "description": "There is a problem with the server configuration."
+                },
+                "AccessDenied": {
+                    "code": "ERROR_ACCESS_DENIED",
+                    "description": "You do not have permission to sign in."
+                },
+                "Verification": {
+                    "code": "ERROR_VERIFICATION",
+                    "description": "The verification token has expired or has already been used."
+                },
+                "OAuthSignin": {
+                    "description": "Error starting OAuth sign in"
+                },
+                "OAuthCallback": {
+                    "description": "Error processing OAuth callback"
+                },
+                "OAuthCreateAccount": {
+                    "description": "Error creating OAuth account"
+                },
+                "EmailCreateAccount": {
+                    "description": "Error creating email account"
+                },
+                "Callback": {
+                    "description": "Error processing callback"
+                },
+                "OAuthAccountNotLinked": {
+                    "description": "Email exists, please sign in with original provider"
+                },
+                "EmailSignin": {
+                    "description": "Check your email for the sign in link"
+                },
+                "CredentialsSignin": {
+                    "description": "Sign in failed, please check your credentials"
+                }
+            }
+        }
     }
 }

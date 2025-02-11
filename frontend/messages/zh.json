@@ -3,9 +3,80 @@
       "title": "SparkPilot - AI学习助手",
       "description": "一个支持多语言的智能AI助手，旨在激发学习兴趣和好奇心。"
     },
+    "Terms": {
+        "title": "服务条款",
+        "description": "请仔细阅读以下服务条款。"
+    },
+    "Privacy": {
+        "title": "隐私政策",
+        "description": "请仔细阅读以下隐私政策。"
+    },
     "NotFound": {
         "title": "404 - 页面未找到",
         "description": "您正在寻找的页面不存在或已移动。",
         "returnHome": "返回首页"
+    },
+    "Auth": {
+        "login": {
+            "title": "欢迎回来",
+            "description": "登录以继续",
+            "buttons": {
+                "github": "使用 GitHub 登录",
+                "google": "使用 Google 登录"
+            },
+            "terms": {
+                "agreement": "登录即表示您同意我们的",
+                "service": "服务条款",
+                "and": "和",
+                "privacy": "隐私政策"
+            }
+        },
+        "error": {
+            "title": "认证错误",
+            "returnHome": "返回首页",
+            "tryAgain": "重试",
+            "types": {
+                "default": {
+                    "code": "ERROR_UNKNOWN",
+                    "description": "认证过程中发生未知错误。"
+                },
+                "Configuration": {
+                    "code": "ERROR_CONFIG",
+                    "description": "服务器配置存在问题。"
+                },
+                "AccessDenied": {
+                    "code": "ERROR_ACCESS_DENIED",
+                    "description": "您没有登录权限。"
+                },
+                "Verification": {
+                    "code": "ERROR_VERIFICATION",
+                    "description": "验证令牌已过期或已被使用。"
+                },
+                "OAuthSignin": {
+                    "description": "启动 OAuth 登录时发生错误"
+                },
+                "OAuthCallback": {
+                    "description": "处理 OAuth 回调时发生错误"
+                },
+                "OAuthCreateAccount": {
+                    "description": "创建 OAuth 账户时发生错误"
+                },
+                "EmailCreateAccount": {
+                    "description": "创建邮箱账户时发生错误"
+                },
+                "Callback": {
+                    "description": "处理回调时发生错误"
+                },
+                "OAuthAccountNotLinked": {
+                    "description": "此邮箱已注册，请使用原有登录方式"
+                },
+                "EmailSignin": {
+                    "description": "检查您的邮箱中的登录链接"
+                },
+                "CredentialsSignin": {
+                    "description": "登录失败，请检查您提供的信息"
+                }
+            }
+        }
     }
 }
