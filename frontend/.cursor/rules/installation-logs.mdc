@@ -214,3 +214,31 @@ installed @langchain/community@0.3.29
 
 109 packages installed [19.42s]
 ```
+---
+```bash
+frontend % bun add next-auth@beta
+[1.44ms] ".env.production", ".env"
+bun add v1.1.45 (196621f2)
+
+installed next-auth@5.0.0-beta.25
+
+10 packages installed [4.50s]
+```
+```bash
+frontend % bun add @auth/neo4j-adapter
+[0.40ms] ".env.production", ".env"
+bun add v1.1.45 (196621f2)
+
+installed @auth/neo4j-adapter@2.7.4
+
+11 packages installed [6.47s]
+```
+```bash
+frontend % bun add neo4j-driver
+[1.14ms] ".env.production", ".env"
+bun add v1.1.45 (196621f2)
+
+installed neo4j-driver@5.28.0
+
+[274.00ms] done
+```
