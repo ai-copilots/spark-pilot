@@ -1,3 +1,5 @@
+import "server-only"
+
 import neo4j, { Session } from "neo4j-driver"
 import { Neo4jAdapter } from "@auth/neo4j-adapter"
 import { getDriver } from '@/lib/neo4j'
@@ -19,30 +21,44 @@ import { getDriver } from '@/lib/neo4j'
  * - VerificationToken: 邮箱验证令牌
  */
 
-// 创建会话代理以管理会话生命周期
-const driver = await getDriver()
-const sessionProxy = new Proxy<Session>(
-  driver.session({
-    database: process.env.NEO4J_DATABASE || "neo4j",
-    defaultAccessMode: neo4j.session.WRITE
-  }),
-  {
-    get(target, prop: keyof Session) {
-      // 为每个事务创建新会话
-      if (prop === "readTransaction" || prop === "writeTransaction") {
-        const session = driver.session({
-          database: process.env.NEO4J_DATABASE || "neo4j",
-          defaultAccessMode: neo4j.session.WRITE
-        })
-        return session[prop].bind(session)
+let sessionProxy: Session | null = null
+
+/**
+ * 初始化会话代理
+ */
+async function initializeSessionProxy() {
+  if (sessionProxy) return sessionProxy
+
+  const driver = await getDriver()
+  sessionProxy = new Proxy<Session>(
+    driver.session({
+      database: process.env.NEO4J_DATABASE || "neo4j",
+      defaultAccessMode: neo4j.session.WRITE
+    }),
+    {
+      get(target, prop: keyof Session) {
+        // 为每个事务创建新会话
+        if (prop === "readTransaction" || prop === "writeTransaction") {
+          const session = driver.session({
+            database: process.env.NEO4J_DATABASE || "neo4j",
+            defaultAccessMode: neo4j.session.WRITE
+          })
+          return session[prop].bind(session)
+        }
+        return target[prop]
       }
-      return target[prop]
     }
-  }
-)
+  )
+  return sessionProxy
+}
 
 /**
  * 导出 Neo4j 适配器实例
  * 使用会话代理确保正确的会话管理
  */
-export const neo4jAdapter = Neo4jAdapter(sessionProxy) 
+export const neo4jAdapter = {
+  async createAdapter() {
+    const session = await initializeSessionProxy()
+    return Neo4jAdapter(session)
+  }
+} 
