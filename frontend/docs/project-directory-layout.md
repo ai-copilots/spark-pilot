@@ -62,14 +62,32 @@ frontend % tree -I "node_modules|.git"
 │   │   └── i18n.ts
 │   ├── app
 │   │   ├── api
+│   │   │   └── auth
+│   │   │       └── [...nextauth]
+│   │   │           └── route.ts
+│   │   ├── auth
+│   │   │   ├── error
+│   │   │   │   └── page.tsx
+│   │   │   └── login
+│   │   │       ├── login-buttons.tsx
+│   │   │       └── page.tsx
 │   │   ├── favicon.ico
 │   │   ├── layout.tsx
+│   │   ├── legal
+│   │   │   ├── layout.tsx
+│   │   │   ├── privacy
+│   │   │   │   └── page.tsx
+│   │   │   └── terms
+│   │   │       └── page.tsx
 │   │   ├── not-found.tsx
 │   │   ├── page.tsx
 │   │   └── showcases
+│   │       ├── neo4j
+│   │       │   └── page.tsx
 │   │       └── typography
 │   │           └── page.tsx
 │   ├── components
+│   │   ├── auth
 │   │   ├── common
 │   │   └── ui
 │   │       ├── accordion.tsx
@@ -122,15 +140,30 @@ frontend % tree -I "node_modules|.git"
 │   │       └── tooltip.tsx
 │   ├── config
 │   │   └── i18n.ts
+│   ├── content
+│   │   └── legal
+│   │       ├── en
+│   │       │   ├── privacy.mdx
+│   │       │   └── terms.mdx
+│   │       └── zh
+│   │           ├── privacy.mdx
+│   │           └── terms.mdx
 │   ├── features
 │   ├── hooks
 │   │   ├── use-mobile.tsx
 │   │   └── use-toast.ts
 │   ├── instrumentation.ts
 │   ├── lib
+│   │   ├── auth
+│   │   │   ├── index.ts
+│   │   │   ├── neo4j-adapter.ts
+│   │   │   └── next-auth.ts
 │   │   ├── i18n
 │   │   │   └── request.ts
+│   │   ├── neo4j.ts
 │   │   └── utils.ts
+│   ├── mdx-components.tsx
+│   ├── middleware.ts
 │   ├── providers
 │   │   └── theme-provider.tsx
 │   ├── styles
@@ -141,5 +174,5 @@ frontend % tree -I "node_modules|.git"
 ├── tailwind.config.ts
 └── tsconfig.json
 
-25 directories, 115 files
+40 directories, 133 files
 ````

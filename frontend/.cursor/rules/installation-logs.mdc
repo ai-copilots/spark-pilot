@@ -255,3 +255,13 @@ installed @types/mdx@2.0.13
 
 107 packages installed [10.37s]
 ```
+---
+```bash
+simonxing@MacbookPro32 frontend % bun add @langchain/anthropic
+[0.12ms] ".env.production", ".env"
+bun add v1.1.45 (196621f2)
+
+installed @langchain/anthropic@0.3.13
+
+7 packages installed [6.75s]
+```
