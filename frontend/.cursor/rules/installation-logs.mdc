@@ -242,3 +242,16 @@ installed neo4j-driver@5.28.0
 
 [274.00ms] done
 ```
+---
+```bash
+frontend % bun add @next/mdx @mdx-js/loader @mdx-js/react @types/mdx
+[1.18ms] ".env.production", ".env"
+bun add v1.1.45 (196621f2)
+
+installed @next/mdx@15.1.7
+installed @mdx-js/loader@3.1.0
+installed @mdx-js/react@3.1.0
+installed @types/mdx@2.0.13
+
+107 packages installed [10.37s]
+```

@@ -2,6 +2,9 @@ import type { NextConfig } from "next";
 
 import createNextIntlPlugin from 'next-intl/plugin'
 
+import type { Options } from '@mdx-js/loader'
+import createMDX from '@next/mdx'
+
 /**
  * 国际化插件配置
  * 用于处理多语言路由和翻译
@@ -11,11 +14,20 @@ const withNextIntl = createNextIntlPlugin(
 )
 
 /**
+ * MDX 配置
+ * 用于处理 .mdx 文件的编译和转换
+ */
+const withMDX = createMDX({
+  options: {
+  } satisfies Partial<Options>,
+})
+
+/**
  * Next.js 主配置
  */
 const nextConfig: NextConfig = {
   // 支持的页面文件扩展名
-  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   
   // 实验性功能配置
   experimental: {
@@ -29,4 +41,4 @@ const nextConfig: NextConfig = {
 }
 
 // 导出最终配置
-export default withNextIntl(nextConfig);
+export default withNextIntl(withMDX(nextConfig));
