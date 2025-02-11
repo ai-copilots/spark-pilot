@@ -201,3 +201,16 @@ installed @tailwindcss/typography@0.5.16
 
 5 packages installed [2.08s]
 ```
+---
+```bash
+frontend % bun add @langchain/core @langchain/langgraph @langchain/openai @langchain/community
+[0.07ms] ".env.production", ".env"
+bun add v1.1.45 (196621f2)
+
+installed @langchain/core@0.3.39
+installed @langchain/langgraph@0.2.45
+installed @langchain/openai@0.4.3
+installed @langchain/community@0.3.29
+
+109 packages installed [19.42s]
+```
