@@ -12,6 +12,7 @@
     "@auth/neo4j-adapter": "^2.7.4",
     "@hookform/resolvers": "^4.0.0",
     "@icons-pack/react-simple-icons": "^11.2.0",
+    "@langchain/anthropic": "^0.3.13",
     "@langchain/community": "^0.3.29",
     "@langchain/core": "^0.3.39",
     "@langchain/langgraph": "^0.2.45",
