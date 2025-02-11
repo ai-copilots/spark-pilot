@@ -78,5 +78,15 @@
                 }
             }
         }
+    },
+    "Legal": {
+        "terms": {
+            "title": "Terms of Service",
+            "lastUpdated": "Last Updated: {date, date, long}"
+        },
+        "privacy": {
+            "title": "Privacy Policy",
+            "lastUpdated": "Last Updated: {date, date, long}"
+        }
     }
 }

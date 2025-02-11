@@ -78,5 +78,15 @@
                 }
             }
         }
+    },
+    "Legal": {
+        "terms": {
+            "title": "服务条款",
+            "lastUpdated": "最后更新时间：{date, date, long}"
+        },
+        "privacy": {
+            "title": "隐私政策",
+            "lastUpdated": "最后更新时间：{date, date, long}"
+        }
     }
 }
