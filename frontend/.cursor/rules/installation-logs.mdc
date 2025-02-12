@@ -265,3 +265,32 @@ installed @langchain/anthropic@0.3.13
 
 7 packages installed [6.75s]
 ```
+---
+```bash
+frontend % bun add -d https-proxy-agent
+[0.14ms] ".env.production", ".env"
+bun add v1.1.45 (196621f2)
+
+installed https-proxy-agent@7.0.6
+
+2 packages installed [62.00ms]
+```
+```bash
+frontend % bun add -d socks-proxy-agent
+[0.13ms] ".env.production", ".env"
+bun add v1.1.45 (196621f2)
+
+installed socks-proxy-agent@8.0.5
+
+6 packages installed [2.48s]
+```
+---
+```bash
+frontend % bun add @anthropic-ai/sdk
+[0.11ms] ".env.production", ".env"
+bun add v1.1.45 (196621f2)
+
+installed @anthropic-ai/sdk@0.36.3
+
+2 packages installed [2.28s]
+```

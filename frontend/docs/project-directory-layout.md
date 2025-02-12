@@ -62,8 +62,11 @@ frontend % tree -I "node_modules|.git"
 │   │   └── i18n.ts
 │   ├── app
 │   │   ├── api
-│   │   │   └── auth
-│   │   │       └── [...nextauth]
+│   │   │   ├── auth
+│   │   │   │   └── [...nextauth]
+│   │   │   │       └── route.ts
+│   │   │   └── showcase
+│   │   │       └── weather
 │   │   │           └── route.ts
 │   │   ├── auth
 │   │   │   ├── error
@@ -81,6 +84,9 @@ frontend % tree -I "node_modules|.git"
 │   │   │       └── page.tsx
 │   │   ├── not-found.tsx
 │   │   ├── page.tsx
+│   │   ├── showcase
+│   │   │   └── weather
+│   │   │       └── page.tsx
 │   │   └── showcases
 │   │       ├── neo4j
 │   │       │   └── page.tsx
@@ -149,6 +155,12 @@ frontend % tree -I "node_modules|.git"
 │   │           ├── privacy.mdx
 │   │           └── terms.mdx
 │   ├── features
+│   │   └── showcase
+│   │       └── utils
+│   │           ├── anthropic.ts
+│   │           ├── graph.ts
+│   │           ├── openai.ts
+│   │           └── tools.ts
 │   ├── hooks
 │   │   ├── use-mobile.tsx
 │   │   └── use-toast.ts
@@ -161,6 +173,7 @@ frontend % tree -I "node_modules|.git"
 │   │   ├── i18n
 │   │   │   └── request.ts
 │   │   ├── neo4j.ts
+│   │   ├── proxy.ts
 │   │   └── utils.ts
 │   ├── mdx-components.tsx
 │   ├── middleware.ts
@@ -174,5 +187,5 @@ frontend % tree -I "node_modules|.git"
 ├── tailwind.config.ts
 └── tsconfig.json
 
-40 directories, 133 files
+46 directories, 140 files
 ````
