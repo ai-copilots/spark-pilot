@@ -1,5 +1,6 @@
 import NextAuth, { NextAuthConfig, Session, User, DefaultSession } from "next-auth"
 import GitHub from "next-auth/providers/github"
+import WeChat from "@auth/core/providers/wechat"
 import { neo4jAdapter } from "./neo4j-adapter"
 
 /**
@@ -28,6 +29,11 @@ const authConfig = async () => {
             scope: "read:user user:email"  // 请求用户信息和邮箱权限
           }
         }
+      }),
+      WeChat({
+        clientId: process.env.WECHAT_APP_ID,
+        clientSecret: process.env.WECHAT_APP_SECRET,
+        platformType: "OfficialAccount" // 使用公众号登录
       })
     ],
 

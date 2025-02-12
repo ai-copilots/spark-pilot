@@ -22,7 +22,8 @@
             "description": "登录以继续",
             "buttons": {
                 "github": "使用 GitHub 登录",
-                "google": "使用 Google 登录"
+                "google": "使用 Google 登录",
+                "wechat": "使用微信登录"
             },
             "terms": {
                 "agreement": "登录即表示您同意我们的",

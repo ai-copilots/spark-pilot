@@ -22,7 +22,8 @@
             "description": "Sign in to continue",
             "buttons": {
                 "github": "Sign in with GitHub",
-                "google": "Sign in with Google"
+                "google": "Sign in with Google",
+                "wechat": "Sign in with WeChat"
             },
             "terms": {
                 "agreement": "By signing in, you agree to our",

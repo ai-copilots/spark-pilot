@@ -1,5 +1,5 @@
 import { getTranslations } from 'next-intl/server'
-import { SiGithub, SiGoogle } from '@icons-pack/react-simple-icons'
+import { SiGithub, SiGoogle, SiWechat } from '@icons-pack/react-simple-icons'
 import {
   Card,
   CardContent,
@@ -22,6 +22,11 @@ const OAUTH_BUTTONS = [
     id: 'google',
     translationKey: 'Buttons.googleLogin',
     icon: <SiGoogle className="mr-2 h-4 w-4" />
+  },
+  {
+    id: 'wechat',
+    translationKey: 'Buttons.wechatLogin',
+    icon: <SiWechat className="mr-2 h-4 w-4" />
   }
 ]
 
