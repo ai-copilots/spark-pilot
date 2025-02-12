@@ -35,6 +35,24 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
+
+## 上传字体文件
+
 ```bash
 scp /Users/simonxing/Documents/spark-pilot/frontend/public/fonts/* ubuntu@129.226.193.37:/home/ubuntu/spark-pilot/frontend/public/fonts/
+```
+
+```bash
+# macos
+brew install woff2
+# ubuntu
+sudo apt-get install woff2
+```
+
+```bash 
+# 转换单个文件
+woff2_compress NotoSansSC-Regular.ttf
+
+# 或者批量转换当前目录下所有 ttf 文件
+for f in *.ttf; do woff2_compress "$f"; done
 ```
