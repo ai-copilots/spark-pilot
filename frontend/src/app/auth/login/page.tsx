@@ -8,11 +8,12 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { LoginButtons } from './login-buttons'
+import { getEnabledOAuthProviders } from '@/lib/auth/utils'
 
 /**
  * OAuth 按钮配置
  */
-const OAUTH_BUTTONS = [
+const ALL_OAUTH_BUTTONS = [
   {
     id: 'github',
     translationKey: 'Buttons.githubLogin',
@@ -30,6 +31,14 @@ const OAUTH_BUTTONS = [
   }
 ]
 
+/**
+ * 获取启用的 OAuth 按钮
+ */
+const getEnabledButtons = () => {
+  const enabledProviders = getEnabledOAuthProviders()
+  return ALL_OAUTH_BUTTONS.filter(button => enabledProviders.includes(button.id))
+}
+
 type PageProps = {
   searchParams: Promise<{ [key: string]: string | undefined }>
 }
@@ -41,8 +50,8 @@ export default async function Login({
   searchParams,
 }: PageProps) {
   const t = await getTranslations('Auth.login')
-  
   const params = await searchParams
+  const enabledButtons = getEnabledButtons()
 
   return (
     <main className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-background">
@@ -63,7 +72,7 @@ export default async function Login({
           </CardHeader>
           <CardContent className="space-y-4">
             <LoginButtons 
-              buttons={OAUTH_BUTTONS}
+              buttons={enabledButtons}
               callbackUrl={params.callbackUrl}
             />
           </CardContent>
