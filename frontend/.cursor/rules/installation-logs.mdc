@@ -355,3 +355,13 @@ installed @types/d3@7.4.3
 
 23 packages installed [2.80s]
 ```
+---
+```bash
+frontend % bun add @mendable/firecrawl-js
+[0.51ms] ".env.production", ".env"
+bun add v1.1.45 (196621f2)
+
+installed @mendable/firecrawl-js@1.16.0
+
+3 packages installed [2.24s]
+```
