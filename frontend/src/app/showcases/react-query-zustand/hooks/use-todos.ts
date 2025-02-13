@@ -2,7 +2,6 @@ import { useQuery } from '@tanstack/react-query';
 import { useMemo } from 'react';
 import { fetchTodos } from '../stores/todo-store';
 import { useTodoUIStore } from '../stores/todo-ui-store';
-import type { Todo } from '../stores/todo-store';
 
 export function useTodos() {
   // 从 Zustand 获取 UI 状态
