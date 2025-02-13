@@ -1,0 +1,176 @@
+---
+description: latest fetch api in next.js 15
+globs: 
+---
+
+
+Let's dive deep into `fetch` in Next.js 15:
+
+### Basic Fetch Usage
+
+```tsx project="Fetch Basics" file="fetch-examples.tsx" type="react"
+'use client'
+
+import { useState, useEffect } from 'react'
+
+export function BasicFetchComponent() {
+  const [data, setData] = useState(null)
+  const [error, setError] = useState(null)
+
+  useEffect(() => {
+    // Client-side fetch
+    async function fetchData() {
+      try {
+        const response = await fetch('https://api.example.com/data', {
+          // Request configuration options
+          method: 'GET', // HTTP method
+          headers: {
+            'Content-Type': 'application/json',
+            // Optional authentication
+            'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`
+          },
+          // Caching strategies
+          cache: 'no-store', // Always fetch fresh data
+          // OR
+          // cache: 'force-cache', // Use cached data if available
+        })
+
+        if (!response.ok) {
+          throw new Error('Network response was not ok')
+        }
+
+        const result = await response.json()
+        setData(result)
+      } catch (error) {
+        setError(error)
+        console.error('Fetch error:', error)
+      }
+    }
+
+    fetchData()
+  }, [])
+
+  if (error) return <div>Failed to load</div>
+  if (!data) return <div>Loading...</div>
+
+  return <div>{JSON.stringify(data)}</div>
+}
+
+// Server Component Fetch
+async function ServerFetchComponent() {
+  try {
+    const response = await fetch('https://api.example.com/data', {
+      // Server-side specific options
+      next: {
+        // Revalidation strategies
+        revalidate: 3600, // Revalidate every hour
+        // OR
+        // tags: ['collection'] // For targeted revalidation
+      }
+    })
+
+    const data = await response.json()
+    return <div>{JSON.stringify(data)}</div>
+  } catch (error) {
+    return <div>Failed to load data</div>
+  }
+}
+```
+
+### Advanced Fetch Techniques
+
+```tsx project="Advanced Fetch" file="advanced-fetch.tsx" type="react"
+// Parallel Data Fetching
+async function ParallelFetchComponent() {
+  // Fetch multiple resources concurrently
+  const [users, posts, comments] = await Promise.all([
+    fetch('https://api.example.com/users').then(r => r.json()),
+    fetch('https://api.example.com/posts').then(r => r.json()),
+    fetch('https://api.example.com/comments').then(r => r.json())
+  ])
+
+  return (
+    <div>
+      <h1>Parallel Fetched Data</h1>
+      <pre>{JSON.stringify({ users, posts, comments }, null, 2)}</pre>
+    </div>
+  )
+}
+
+// Custom Fetch Wrapper
+async function customFetch(url: string, options = {}) {
+  const defaultOptions = {
+    headers: {
+      'Content-Type': 'application/json',
+      // Global headers
+    }
+  }
+
+  const response = await fetch(url, {
+    ...defaultOptions,
+    ...options
+  })
+
+  if (!response.ok) {
+    throw new Error('Network response was not ok')
+  }
+
+  return response.json()
+}
+```
+
+### Fetch Caching Strategies
+
+```tsx project="Fetch Caching" file="fetch-caching.tsx" type="react"
+// Caching Strategies Demonstration
+async function CachingDemoComponent() {
+  // No caching - always fresh data
+  const freshData = await fetch('https://api.example.com/fresh', { 
+    cache: 'no-store' 
+  })
+
+  // Force cache - use cached data if available
+  const cachedData = await fetch('https://api.example.com/cached', { 
+    cache: 'force-cache' 
+  })
+
+  // Revalidation at specific intervals
+  const revalidatingData = await fetch('https://api.example.com/revalidate', { 
+    next: { 
+      revalidate: 60 // Revalidate every 60 seconds
+    } 
+  })
+
+  // Targeted revalidation with tags
+  const taggedData = await fetch('https://api.example.com/tagged', { 
+    next: { 
+      tags: ['collection'] 
+    } 
+  })
+
+  return <div>Cached Data Demonstration</div>
+}
+```
+
+### Key Fetch Concepts in Next.js 15
+
+1. **Caching Modes**
+   - `no-store`: Always fetch fresh data
+   - `force-cache`: Use cached data if available
+   - `next: { revalidate: seconds }`: Periodic revalidation
+
+2. **Error Handling**
+   - Always check `response.ok`
+   - Use try/catch for network errors
+   - Provide fallback UI
+
+3. **Performance Considerations**
+   - Use `Promise.all()` for parallel fetching
+   - Implement custom fetch wrappers
+   - Leverage built-in caching
+
+### Best Practices
+
+1. Create a centralized fetch utility
+2. Handle errors gracefully
+3.
