@@ -143,7 +143,7 @@ export async function executeRead<T>(
         const result = await session.executeRead(
             (tx) => tx.run(cypher, params)
         )
-        return result.records.map(record => record.toObject() as T)
+        return result.records as T[];
     } catch (error) {
         throw new Neo4jConnectionError('执行只读查询失败', error)
     } finally {
@@ -173,7 +173,7 @@ export async function executeWrite<T>(
         const result = await session.executeWrite(
             (tx) => tx.run(cypher, params)
         )
-        return result.records.map(record => record.toObject() as T)
+        return result.records as T[];
     } catch (error) {
         throw new Neo4jConnectionError('执行写入查询失败', error)
     } finally {

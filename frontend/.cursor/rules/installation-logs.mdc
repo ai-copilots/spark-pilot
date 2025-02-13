@@ -294,3 +294,64 @@ installed @anthropic-ai/sdk@0.36.3
 
 2 packages installed [2.28s]
 ```
+---
+```bash
+frontend % bun add ws @types/ws
+[1.32ms] ".env.production", ".env"
+bun add v1.1.45 (196621f2)
+
+installed ws@8.18.0
+installed @types/ws@8.5.14
+
+2 packages installed [2.91s]
+```
+---
+```bash
+frontend % bun add react-syntax-highlighter @types/react-syntax-highlighter
+[0.45ms] ".env.production", ".env"
+bun add v1.1.45 (196621f2)
+
+installed react-syntax-highlighter@15.6.1
+installed @types/react-syntax-highlighter@15.5.13
+
+34 packages installed [3.87s]
+```
+---
+```bash
+frontend % bun add zustand
+[1.81ms] ".env.production", ".env"
+bun add v1.1.45 (196621f2)
+
+installed zustand@5.0.3
+
+1 package installed [4.91s]
+```
+---
+```bash
+frontend % bun add @tanstack/react-query
+[0.15ms] ".env.production", ".env"
+bun add v1.1.45 (196621f2)
+
+installed @tanstack/react-query@5.66.0
+
+2 packages installed [1.62s]
+```
+---
+```bash
+frontend % bun add d3
+[0.15ms] ".env.production", ".env"
+bun add v1.1.45 (196621f2)
+
+installed d3@7.9.0
+
+26 packages installed [3.59s]
+```
+```bash
+frontend % bun add -d @types/d3
+[0.10ms] ".env.production", ".env"
+bun add v1.1.45 (196621f2)
+
+installed @types/d3@7.4.3
+
+23 packages installed [2.80s]
+```
