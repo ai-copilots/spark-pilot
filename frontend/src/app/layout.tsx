@@ -3,6 +3,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages, getTranslations } from 'next-intl/server';
 import { formats } from "@/lib/i18n/request";
 import { ThemeProvider } from "@/providers/theme-provider";
+import { ReactQueryProvider } from "@/providers/react-query-provider";
 import { cn } from "@/lib/utils";
 import { getAllFontVariables } from "@/styles/fonts";
 import "@/styles/globals.css";
@@ -54,7 +55,9 @@ export default async function RootLayout({
       >
         <NextIntlClientProvider messages={messages} locale={locale} formats={formats}>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-            {children}
+            <ReactQueryProvider>
+              {children}
+            </ReactQueryProvider>
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>

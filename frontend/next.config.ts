@@ -29,6 +29,17 @@ const nextConfig: NextConfig = {
   // 支持的页面文件扩展名
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   
+  // 图片域名配置
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'openweathermap.org',
+        pathname: '/img/wn/**',
+      },
+    ],
+  },
+
   // 实验性功能配置
   experimental: {
     // 包导入优化
